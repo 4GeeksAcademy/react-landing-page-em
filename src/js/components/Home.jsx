@@ -1,28 +1,68 @@
-import React from "react";
+//Importo toda la información:
 
-//include images into your bundle
+import React from "react";
+import Navbar from "./Navbar";
+import Jumbotron from "./Jumbotron";
+import Card from "./Card";
 import rigoImage from "../../img/rigo-baby.jpg";
 
-//create your first component
+//Creo la función para generar la información:
 const Home = () => {
-	return (
-		<div className="text-center">
-            
+	    const cards = [
+        {
+            img: rigoImage,
+            title: "El Rigo título",
+            text: "Este texto es un elemento super útil para el ejercicio",
+            buttonLabel: "Aprende React",
+            buttonUrl: "#"
+        },
+        {
+            img: rigoImage,
+            title: "El Rigo título v.1",
+            text: "Este texto es un elemento super útil para el ejercicio",
+            buttonLabel: "Aprende React",
+            buttonUrl: "#"
+        },
+        {
+            img: rigoImage,
+            title: "El Rigo título v.2",
+            text: "Este texto es un elemento super útil para el ejercicio",
+            buttonLabel: "Aprende React",
+            buttonUrl: "#"
+        },
+        {
+            img: rigoImage,
+            title: "El Rigo título v.3",
+            text: "Este texto es un elemento super útil para el ejercicio.",
+            buttonLabel: "Aprende React",
+            buttonUrl: "#"
+        }
+    ];
 
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
-		</div>
-	);
+	return (
+        <div>
+            <Navbar />
+            <div className="container mt-4">
+            <Jumbotron />
+            <div className="row justify-content-center">
+                {cards.map((card, index) => (
+                    <div className="col-md-3" key={index}>
+                        <Card
+                            img={card.img}
+                            title={card.title}
+                            text={card.text}
+                            buttonLabel={card.buttonLabel}
+                            buttonUrl={card.buttonUrl}
+                        />
+                    </div>
+                    ))}
+        	</div>
+			<footer className="bg-dark text-white text-center py-4 mt-5">
+          			<p className="mb-0"> Copyright © Erica 2025</p>
+        	</footer>
+        	</div>
+        </div>
+    );
 };
 
 export default Home;
